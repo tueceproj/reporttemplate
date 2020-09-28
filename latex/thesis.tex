@@ -1,0 +1,146 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+%%=================================================
+%%
+%% Department of Electrical and Computer Engineering
+%% Project Report Template
+%%
+%% 1. "thesis.tex" - Only need to comment/uncomment parts that need compiled.
+%%
+%% 2. "info.tex" - Edit this file to define all your strings.
+%%
+%% 3. Edit these files for your report:
+%%    1. abstract_th.tex       - บทคัดย่อ ภาษาไทย
+%%    2. abstract_en.tex       - บทคัดย่อ ภาษาอังกฤษ
+%%    3. ack_th.tex            - กิตติกรรมประกาศ ภาษาไทย
+%%    4. ack_en.tex            - กิตติกรรมประกาศ ภาษาอังกฤษ (ไม่ได้ใช้)
+%%    5. acronyms.tex          - คำย่อต่าง ๆ (ถ้ามี)
+%%    6. chapter[1-5].tex      - รายงานแต่ละบท (บทที่ 1 - 5)
+%%    7. refs.bib              - รายการเอกสารอ้างอิง
+%%    8. appendix[A,B,...].tex - ภาคผนวก ก ข ...
+%%
+%%=================================================
+\documentclass[12pt,a4paper,oneside]{book}
+\newcommand{\mycomment}[1]{}
+
+%%=================================================
+%% START Packages
+%%=================================================
+
+%% Required packages for thesis layout (do not remove)
+\usepackage{TUthesis}
+
+%% Put everything else in "mystyle" package
+\usepackage{mystyle}
+
+%%=================================================
+%% END Packages
+%%=================================================
+
+
+%%=================================================
+%% START Project info
+%%=================================================
+
+%% Edit project information in the file "info.tex"
+\input{info}
+
+%%=================================================
+%% END Project info
+%%=================================================
+
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+%% EDIT - Uncomment the type of report to compile
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+\setReportType{Sample}
+%\setReportType{Proposal}
+%\setReportType{Progress 1}
+%\setReportType{Progress 2}
+%\setReportType{Final}
+
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+%% EDIT - Uncomment this line if you have acronyms page
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+\addAcronyms{true}
+
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+%% EDIT - Uncomment this line if you have listings page
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+\addListOfListings{true}
+
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+%% EDIT - Uncomment this line if you have appendix page(s)
+%%+++++++++++++++++++++++++++++++++++++++++++++++++
+\addAppendix{true}
+
+
+%%#################################################
+%% No need to edit anything below this.
+%%#################################################
+
+\begin{document}
+\frontmatter
+
+\addtocontents{toc}{\contheading}
+\setlength{\parskip}{0pt plus1pt minus1pt}
+
+\include{front/1_with_logo_th}
+\include{front/2_without_logo_th}
+\include{front/3_without_logo_en}
+\include{front/4_signature}
+\include{front/5_abstract_th}
+\include{front/6_abstract_en}
+\include{front/7_ack_th}
+\include{front/8_toc_lof_lot_lol}
+\IfAddAcronyms{
+	\include{front/9_acronyms}
+}
+%%=================================================
+%% Chapters
+%%=================================================
+\mainmatter
+
+%% Edit the files chapter1.tex, chapter2.tex, ...
+
+%% บทนำ
+%% Introduction
+\include{chapter1}
+
+%% ทฤษฎีหรืองานที่เกี่ยวข้อง
+%% Literature Review
+\include{chapter2}
+
+%% การดําเนินงาน
+%% Methodology
+\include{chapter3}
+
+%% ผลการดำเนินงาน
+%% Finding and Results
+\include{chapter4}
+
+%% สรุปโครงงาน
+%% Conclusions and Recommendations
+\include{chapter5}
+
+%% ตัวอย่างการเขียน
+%% Examples of writing LaTeX
+\include{example}
+
+%%=================================================
+%% References
+%%=================================================
+\include{back/1_reference}
+
+%%=================================================
+%% Appendices
+%%=================================================
+%% Edit the files appendixA.tex, appendixB.tex, ...
+%% If you have more appendices, add appendC, appendD, ...
+\IfAddAppendix{
+	\appendix
+	\appendixpage
+	\include{appendixA}
+	\include{appendixB}
+}
+
+\end{document}
